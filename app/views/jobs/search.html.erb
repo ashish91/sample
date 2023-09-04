@@ -1,0 +1,56 @@
+<h2 class='p-3'>Search Jobs</h2>
+
+<%= form_with model: Job.new, url: search_jobs_path, method: :get do |f| %>
+  <div class='row w-50 p-3'>
+    <div class='col'>
+      <%= f.text_field :title, placeholder: 'Job Title', class: 'form-control' %>
+    </div>
+
+    <div class='col'>
+      <%= f.text_field :company_name, placeholder: 'Company Name', class: 'form-control' %>
+    </div>
+
+    <div class='col'>
+      <%= f.text_field :category, placeholder: 'Category', class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class='row w-50 p-3'>
+    <div class='col'>
+      <%= f.select :job_type, options_for_select(job_types), { include_blank: "Select Job Type" }, { class: "form-select" }%>
+    </div>
+
+    <div class='col'>
+      <%= f.text_field :job_source, placeholder: 'Job Source', class: 'form-control' %>
+    </div>
+
+    <div class='col'>
+      <%= f.check_box :is_remote, class: 'form-check-input' %>
+      <%= f.label :show_remote_jobs, class: 'form-check-label text-secondary' %>
+    </div>
+  </div>
+
+  <div class='row w-50 p-3'>
+    <div class='col'>
+      <%= f.submit "Search", class: 'btn btn-light' %>
+    </div>
+  </div>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @jobs.each do |job| %>
+      <tr>
+        <td><%= job.title %></td>
+        <td><%= link_to 'Show', job %></td>
+        <td><%= link_to 'Edit', edit_job_path(job) %></td>
+        <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

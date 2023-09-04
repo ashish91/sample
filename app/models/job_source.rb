@@ -1,0 +1,2 @@
+class JobSource < ApplicationRecord
+end
