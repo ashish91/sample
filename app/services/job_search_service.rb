@@ -11,6 +11,6 @@ class JobSearchService
 
   private
     def build_query
-      Job.where("title like '%?%'", @params[:title])
+      Job.where("title like ?", "%#{@params[:title]}%").all
     end
 end

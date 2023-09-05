@@ -48,3 +48,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'psych', '< 4'
 
 gem 'pry'
+
+gem "devise", "~> 4.9"
