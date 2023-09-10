@@ -11,3 +11,9 @@
     name: category
   )
 end
+
+['CompanyA', 'CompanyB'].each do |company|
+  Company.create!(
+    name: company
+  )
+end

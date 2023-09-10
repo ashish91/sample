@@ -11,8 +11,15 @@
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= form.text_field :title %>
-    <%= form.submit %>
+  <div class="actions row w-25 px-3">
+    <div class='col'>
+      <%= form.text_field :title, placeholder: 'Add title', class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="actions row w-25 px-3">
+      <div class='col'>
+      <%= form.submit %>
+    </div>
   </div>
 <% end %>
